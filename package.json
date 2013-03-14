@@ -1,0 +1,18 @@
+{
+  "name": "tf2-loadrules",
+  "version": "0.0.0",
+  "description": "An alternative take on loadouts for TF2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stuartpb/tf2-loadrules.git"
+  },
+  "keywords": [
+    "tf2"
+  ],
+  "author": "Stuart P. Bentley",
+  "license": "LITL"
+}
