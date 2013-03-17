@@ -1,0 +1,81 @@
+!!!
+html
+  head
+    meta(charset="utf-8")
+    title TF2 Loadrules
+    style
+    script
+      var mapsets = {
+        allmaps: ['symmetric','asymmetric','allcp','event'],
+        symmetric: ['pushcp','koth','plr','ctf','arena'],
+        asymmetric: ['mvm','adcp','payload','medieval'],
+        allcp: ['pushcp','adcp,'medieval']
+      }
+  body
+    form
+      fieldset
+        legend On
+        label RED
+          input(type="checkbox")#redteam
+        label BLU
+          input(type="checkbox")#bluteam
+      fieldset
+        legend During
+        label Full Moons
+          input(type="checkbox")#fullmoon
+        label Halloween
+          input(type="checkbox")#halloween
+        label Australian Christmas
+          input(type="checkbox")#christmas
+        input(type="date")#calendar
+        input(type="checkbox")#birthday
+      fieldset
+        legend On servers
+        label With tag
+          input(type="checkbox")#withtag
+        label Without tag
+          input(type="checkbox")#wotag
+        label At address
+          input(type="checkbox")#serverip
+        input#serverspec
+      fieldset
+        legend On 
+        label All Maps
+          input(type="checkbox")#allmaps
+        br
+        label Symmetric
+          input(type="checkbox")#symmetric
+        label Asymmetric
+          input(type="checkbox")#asymmetric
+        br
+        label MvM
+          input(type="checkbox")#mvm
+        br
+        label All CP
+          input(type="checkbox")#allcp
+        label Push CP
+          input(type="checkbox")#pushcp
+        label A/D CP
+          input(type="checkbox")#adcp
+        br
+        label KOTH
+          input(type="checkbox")#koth
+        label PL
+          input(type="checkbox")#payload
+        label PLR
+          input(type="checkbox")#plr
+        label CTF
+          input(type="checkbox")#CTF
+        br
+        label Arena
+          input(type="checkbox")#arena
+        label Medieval
+          input(type="checkbox")#medieval
+        label Event
+          input(type="checkbox")#event
+          
+          
+          
+          
+          
+          
