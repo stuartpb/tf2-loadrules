@@ -1,86 +1,118 @@
-!!!
+doctype
 html
   head
     meta(charset="utf-8")
     title TF2 Loadrules
-    style
-    script
-      var mapsets = {
+    style.
+    script.
+      var metasets = {
         allmaps: ['symmetric','asymmetric','allcp','event'],
-        symmetric: ['pushcp','koth','plr','ctf','arena'],
+        symmetric: ['pushcp','domination','koth','plr','ctf','arena','sd'],
         asymmetric: ['mvm','adcp','payload','medieval'],
-        allcp: ['pushcp','adcp,'medieval']
+        allcp: ['pushcp','adcp','domination','medieval']
       }
-      function revise(name, truth){
-        for (chilname in document.getElementsByname(name)) {
-            chilname = true
-        }
+      var mapsets = {
+        pushcp: ['cp_granary', 'cp_well', 'cp_badlands', 'cp_fastlane',
+          'cp_freight_final1', 'cp_coldfront', 'cp_yukon_final', 'cp_5gorge',
+          'cp_foundry', 'cp_process_final', 'cp_gullywash_final1',
+          'cp_snakewater_final1'],
+        adcp: ['cp_gravelpit', 'cp_dustbowl', 'cp_steel', 'cp_gorge',
+          'cp_egypt_final', 'cp_junction_final', 'cp_mountainlab',
+          'cp_manor_event', 'medieval_degrootkeep'],
+        koth: ['koth_viaduct', 'koth_harvest_final', 'koth_harvest_event',
+          'koth_badlands', 'koth_sawmill', 'koth_nucleus', 'koth_viaduct_event',
+          'koth_lakeside_final', 'koth_lakeside_event', 'koth_king'],
+        pl: ['pl_goldrush', 'pl_badwater', 'pl_hoodoo', 'pl_thundermountain',
+          'pl_upward', 'pl_barnblitz', 'pl_frontier'],
+        plr: ['plr_pipeline', 'plr_hightower', 'plr_nightfall_final',
+          'plr_hightower_event'],
+        ctf: ['ctf_2fort', 'ctf_turbine', 'ctf_doublecross', 'ctf_sawmill',
+          'ctf_well'],
+        arena: ['arena_badlands', 'arena_granary', 'arena_lumberyard',
+          'arena_nucleus', 'arena_offblast', 'arena_ravine', 'arena_sawmill',
+          'arena_watchtower', 'arena_well'],
+        // Ideally TC would change per-round depending on if the round is
+        // going to be A/D CP or Push CP. But, really, who cares?
+        tc: ['tc_hydro'],
+        sd: ['sd_doomsday'],
+        domination: ['cp_standin_final'],
+        medieval: ['medieval_degrootkeep'],
+        event: ['koth_harvest_event', 'cp_manor_event', 'koth_viaduct_event',
+          'koth_lakeside_event', 'plr_hightower_event', 'mvm_ghost_town'],
+        mvm: ['mvm_coaltown', 'mvm_decoy', 'mvm_mannworks', 'mvm_ghost_town',
+          'mvm_mannhattan', 'mvm_rottenburg'],
       }
+
   body
-    form
-      fieldset
-        legend On
-        label RED
-          input(type="checkbox")#redteam
-        label BLU
-          input(type="checkbox")#bluteam
-      fieldset
-        legend During
-        label Full Moons
-          input(type="checkbox")#fullmoon
-        label Halloween
-          input(type="checkbox")#halloween
-        label Australian Christmas
-          input(type="checkbox")#christmas
-        input(type="date")#calendar
-        input(type="checkbox")#birthday
-      fieldset
-        legend On servers
-        label With tag
-          input(type="checkbox")#withtag
-        label Without tag
-          input(type="checkbox")#wotag
-        label At address
-          input(type="checkbox")#serverip
-        input#serverspec
-      fieldset
-        legend On 
-        label All Maps
-          input(type="checkbox")#allmaps
-        br
-        label Symmetric
-          input(type="checkbox")#symmetric
-        label Asymmetric
-          input(type="checkbox")#asymmetric
-        br
-        label MvM
-          input(type="checkbox")#mvm
-        br
-        label All CP
-          input(type="checkbox")#allcp
-        label Push CP
-          input(type="checkbox")#pushcp
-        label A/D CP
-          input(type="checkbox")#adcp
-        br
-        label KOTH
-          input(type="checkbox")#koth
-        label PL
-          input(type="checkbox")#payload
-        label PLR
-          input(type="checkbox")#plr
-        label CTF
-          input(type="checkbox")#CTF
-        br
-        label Arena
-          input(type="checkbox")#arena
-        label Medieval
-          input(type="checkbox")#medieval
-        label Event
-          input(type="checkbox")#event
-          
-          
-          
-          
-          
-          
+    #backpack
+    #loadout
+    #rules
+      form
+        fieldset
+          legend On
+          label RED
+            input(type="checkbox")#redteam
+          label BLU
+            input(type="checkbox")#bluteam
+        fieldset
+          legend During
+          label Full Moons
+            input(type="checkbox")#fullmoon
+          label Halloween
+            input(type="checkbox")#halloween
+          label Smissmass
+            input(type="checkbox")#christmas
+          input(type="date")#calendar
+          input(type="checkbox")#birthday
+        fieldset
+          legend On servers
+          label With tag
+            input(type="checkbox")#withtag
+          label Without tag
+            input(type="checkbox")#wotag
+          label At address
+            input(type="checkbox")#serverip
+          input#serverspec
+        fieldset
+          legend On
+          label All Maps
+            input(type="checkbox")#allmaps
+          br
+          label Symmetric
+            input(type="checkbox")#symmetric
+          label Asymmetric
+            input(type="checkbox")#asymmetric
+          br
+          label MvM
+            input(type="checkbox")#mvm
+          br
+          label All CP
+            input(type="checkbox")#allcp
+          label Push CP
+            input(type="checkbox")#pushcp
+          label A/D CP
+            input(type="checkbox")#adcp
+          label Domination CP
+            input(type="checkbox")#domination
+          br
+          label KOTH
+            input(type="checkbox")#koth
+          label PL
+            input(type="checkbox")#payload
+          label PLR
+            input(type="checkbox")#plr
+          label CTF
+            input(type="checkbox")#ctf
+          label Special Delivery
+            input(type="checkbox")#sd
+          br
+          label Arena
+            input(type="checkbox")#arena
+          label Medieval
+            input(type="checkbox")#medieval
+          label Event
+            input(type="checkbox")#event
+          div#maplist
+          // Should this be duplicable?
+          label Name filter
+            input(type="text")#namefilter
